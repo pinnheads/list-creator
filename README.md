@@ -4,9 +4,10 @@ A basic yet fully functional list creator with login and signup authentication f
 
 ## To-Do
 
-    - [X] Sign up form
-    - [X] Login form
-    - [ ] List Creator
+    - [x] Sign up form
+    - [x] Login form
+    - [x] Logouts
+    - [x] List Creator
     - [ ] Admin Grid
     - [ ] Routes
 

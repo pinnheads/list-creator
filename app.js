@@ -42,6 +42,10 @@ db.once('open', (err) => {
     }  
 });
 
+const listSchema = new mongoose.Schema({
+    item: String,
+})
+
 //user schema for database
 const userSchema = new mongoose.Schema ({
   name: String,
@@ -49,19 +53,22 @@ const userSchema = new mongoose.Schema ({
   age: Number,
   email: String,
   username: String,
-  password: String
+  password: String,
+  listItems: [listSchema]
 });
+
+
 
 //plugin for passport authentication
 userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model("User", userSchema);
+const List = mongoose.model('List', listSchema);
 
 //Session configuration
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
 
 //Home route
 app.route('/')
@@ -123,17 +130,74 @@ app.route('/login')
             res.json({success: false, message:'Not able to sign in', err});
         } else {
             passport.authenticate('local')(req, res, ()=>{
-                res.redirect('/list');
+                console.log(user);
+                res.redirect('/list/' + user.username);
             });
         }
     });
 });
 
-app.route('/list')
+//Logout route
+app.route('/logout')
+.get((req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
+//List route
+app.route('/list/:username')
 
 .get((req, res) => {
-    res.render('list');
+    const userName = req.params.username;
+
+    User.findOne({username: userName}, (err, foundUser) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render('list', {username: req.params.username, userList: foundUser.listItems });
+        }
+    })
+    
 })
+
+.post((req, res) => {
+    // console.log(req.params);
+    // console.log(req.body);
+    const userName = req.params.username;
+    const newItem = new List({
+        item: req.body.item,
+    });
+
+    User.findOne({username: userName}, (err, foundUser) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(foundUser);
+            foundUser.listItems.push(newItem);
+            foundUser.save();
+            console.log('Item saved');
+            res.redirect('/list/'+userName);
+        }
+    })
+})
+
+//Delete route
+app.route('/list/:username/:listItemID')
+
+.post((req, res) => {
+    const user = req.params.username;
+    const listItemID = req.params.listItemID;
+
+    User.findOneAndUpdate({username: user}, { $pull: {listItems: {_id: listItemID}}}, (err, foundList) => {
+        if(!err) {
+            console.log('deleted');
+            res.redirect('/list/'+user);
+        } else {
+            console.log('failed to delete');
+        }
+    })
+})
+
 
 app.listen(process.env.PORT || 3000, ()=> {
     console.log('Server started');
