@@ -7,10 +7,6 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const ejs = require('ejs');
-
-
-//port configuration
-const port = 3000 || process.env.PORT
 const app = express();
 
 //use modules
@@ -139,6 +135,6 @@ app.route('/list')
     res.send('List Page');
 })
 
-app.listen(port, ()=> {
-    console.log(`Example app listening at http://localhost:${port}`);
+app.listen(process.env.PORT || 3000, ()=> {
+    console.log('Server started');
 });
