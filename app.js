@@ -132,7 +132,7 @@ app.route('/login')
 app.route('/list')
 
 .get((req, res) => {
-    res.send('List Page');
+    res.render('list');
 })
 
 app.listen(process.env.PORT || 3000, ()=> {
