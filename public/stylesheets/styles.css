@@ -1,0 +1,55 @@
+body {
+  background-image: url('https://bit.ly/3nPQLm0');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+.jumbotron {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+#signup .container #signup-row #signup-column #signup-box {
+  color: black !important;
+  margin-top: 100px;
+  max-width: 600px;
+  height: 680px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#signup .container #signup-row #signup-column #signup-box #signup-form {
+  padding: 20px;
+}
+#signup
+  .container
+  #signup-row
+  #signup-column
+  #signup-box
+  #signup-form
+  #register-link {
+  margin-top: -70px;
+}
+
+#login .container #login-row #login-column #login-box {
+  color: black !important;
+  margin-top: 100px;
+  max-width: 600px;
+  height: 320px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login
+  .container
+  #login-row
+  #login-column
+  #login-box
+  #login-form
+  #register-link {
+  margin-top: -70px;
+}
