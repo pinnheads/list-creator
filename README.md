@@ -1,6 +1,6 @@
 # List Creator
 
-A basic yet fully functional list creator with login and signup authentication features
+A basic yet fully functional list creator with login and signup authentication features. See live [here](https://list-creator.herokuapp.com/)
 
 ## To-Do
 
@@ -8,8 +8,8 @@ A basic yet fully functional list creator with login and signup authentication f
     - [x] Login form
     - [x] Logouts
     - [x] List Creator
-    - [ ] Admin Grid
-    - [ ] Routes
+    - [x] Admin Grid
+    - [x] Routes
 
 ## Things I Have Used
 
@@ -17,6 +17,8 @@ A basic yet fully functional list creator with login and signup authentication f
 - Express
 - MongoDB
 - Mongoose
+- Flash messages
+- PassportJS
 - EJS
 - HTML, CSS
 

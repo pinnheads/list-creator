@@ -8,6 +8,12 @@ body {
   padding: 0;
   height: 100vh;
 }
+#nav-text,
+#nav-btn {
+  margin: 5px;
+  color: white;
+}
+
 .jumbotron {
   margin-top: 20px;
   background: rgba(255, 255, 255, 0.9);
@@ -37,10 +43,17 @@ body {
   color: black !important;
   margin-top: 100px;
   max-width: 600px;
-  height: 320px;
+  height: 420px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.9);
 }
+#admin-creds {
+  background: #f07b7a;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;
 }
@@ -58,6 +71,18 @@ body {
   padding-top: 50px;
 }
 
-#delete-item {
+#right-button {
   float: right;
+}
+
+.card {
+  margin: 25px;
+}
+#loggedin-as {
+  margin-top: 25px;
+  padding: 15px 5px;
+}
+
+.card-header {
+  color: white;
 }

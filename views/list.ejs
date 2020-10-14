@@ -19,11 +19,10 @@
         <li class="list-group-item">
           <form action="/list/<%= username %>/<%= listItem._id %>" method="post">
             <%= listItem.item %>
-            <button class="btn btn-danger" id="delete-item" type="submit">Delete</button>
+            <button class="btn btn-danger" id="right-button" type="submit">Delete</button>
           </form>         
         </li>
       <% }) %>
     </ul>
   </div>
-</div>  
 <%- include("partials/footer.ejs") %>
