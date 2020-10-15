@@ -40,6 +40,7 @@ DB_USERNAME = process.env.DB_USER;
 DB_PASSWORD = process.env.DB_PASS;
 
 //MongoDB Connection
+//Replace database string with - mongodb://localhost:27017/YOUR_DB_NAME
 mongoose.connect(`mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0-bxkcc.mongodb.net/listCreator`, {useNewUrlParser: true,useUnifiedTopology: true, useFindAndModify: false});
 const db = mongoose.connection; 
 
